@@ -25,6 +25,7 @@ class Spaceship extends Floater
     //rotate so that the polygon will be drawn in the correct direction
     rotate(dRadians);
     //spaceship
+    translate(0,15);
     fill(180);
     stroke(180);
     triangle(15,0,-15,0,0,-15);
@@ -43,7 +44,6 @@ class Spaceship extends Floater
     //window
     fill(0);
     ellipse(0,25,15,15);
-    
       //draw the polygon
     /*beginShape();
      for (int nI = 0; nI < corners; nI++)
@@ -53,6 +53,7 @@ class Spaceship extends Floater
      endShape(CLOSE);
      */
       //"unrotate" and "untranslate" in reverse order
+      translate(0,-15);
       rotate(-1*dRadians);
       rotate(-PI/2);
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
