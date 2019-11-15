@@ -17,16 +17,16 @@ public void draw()
   rocket.show();
   rocket.move();
   purple.show("purple");
-  earth.show("earth");
+ // earth.show("earth");
   
 }
 public void keyPressed(){
-	/*
-	if (left_arrow==keyCode)
-		rocket.turn(-1);
-	if(right_ARROW==keyCode)
-		rocket.turn(1);
-	if(UParrow==keyCode)
-		rocket.
-	*/
+    if(keyCode==LEFT)
+		  rocket.turn(-3);
+	if(keyCode==RIGHT)
+		rocket.turn(3);
+  if(keyCode==UP)
+    rocket.accelerate(.2);
+  if(keyCode==DOWN)
+    rocket.accelerate(-.2);
 }

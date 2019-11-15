@@ -9,7 +9,7 @@ class Spaceship extends Floater
     myCenterY=500; //holds center coordinates   
     myDirectionX = 0; 
     myDirectionY=0; //holds x and y coordinates of the vector for direction of travel   
-    myPointDirection = 1;
+    myPointDirection =0;
   }
   public void show() {
 
@@ -18,7 +18,7 @@ class Spaceship extends Floater
 
     //translate the (x,y) center of the ship to the correct position
     translate((float)myCenterX, (float)myCenterY);
-
+    rotate(PI/2);
     //convert degrees to radians for rotate()     
     float dRadians = (float)(myPointDirection*(Math.PI/180));
 
@@ -43,12 +43,6 @@ class Spaceship extends Floater
     //window
     fill(0);
     ellipse(0,25,15,15);
-    fill(255);
-    ellipse(0,25,6,8);
-    ellipse(0,28,8,8);
-    stroke(255);
-    strokeWeight(2);
-    line(0,28,4,24);
     
       //draw the polygon
     /*beginShape();
@@ -60,6 +54,7 @@ class Spaceship extends Floater
      */
       //"unrotate" and "untranslate" in reverse order
       rotate(-1*dRadians);
+      rotate(-PI/2);
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
   }
 }
