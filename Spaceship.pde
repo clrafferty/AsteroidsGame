@@ -58,5 +58,20 @@ class Spaceship extends Floater
       rotate(-PI/2);
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
   }
+  public void setMyCenterX(float myX){
+    myCenterX=myX;
+  }
+  public void setMyCenterY(float myY){
+    myCenterY=myY;
+  }
+  public void setMyDirectionX(float mydirX){
+    myDirectionX=mydirX;
+  }
+  public void setMyDirectionY(float mydiry){
+    myDirectionY=mydiry;
+  }
+  public void setMyPointDirection(float mypointdir){
+    myPointDirection=mypointdir;
+  }
 }
    
