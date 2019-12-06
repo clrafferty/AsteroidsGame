@@ -20,6 +20,7 @@ class Spaceship extends Floater
 
     //translate the (x,y) center of the ship to the correct position
     translate((float)myCenterX, (float)myCenterY);
+    translate(0,-20);
     rotate(PI/2);
     //convert degrees to radians for rotate()     
     float dRadians = (float)(myPointDirection*(Math.PI/180));
@@ -60,6 +61,7 @@ class Spaceship extends Floater
 
       rotate(-1*dRadians);
       rotate(-PI/2);
+      translate(0,20);
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
   }
   public void setMyCenterX(float myX){
@@ -79,6 +81,12 @@ class Spaceship extends Floater
   }
   public void setfiring(boolean fire){
     firing=fire;
+   }
+   public float getMyCenterX(){
+   return (float)myCenterX;
+   }
+   public float getMyCenterY(){
+   return (float)myCenterY;
    }
 }
    

@@ -1,12 +1,11 @@
 class Asteroid extends Floater {
   private int turn;
   Asteroid() {
-    turn = (int)(Math.random(-4)+2)
+    turn = (int)(Math.random()*-4+2);
     corners = 5;
-    xCorners=new int[5];
-    xCorners={0, 5, 4, 1};   
-    yCorners={2.5, 0, -2.5, -2.5, 0}; 
-    myColor=color(255, 255, 255);   
+    xCorners=new float[]{0*10, 5*10, 4*10, 1*10,0*10};   
+    yCorners=new float[]{2.5*10, 0*10, -2.5*10, -2.5*10, 0*10}; 
+    myColor=color(255, 25, 255);   
     myCenterX=(int)(Math.random()*width);
     myCenterY=(int)(Math.random()*height);  
     myDirectionX=(double)(Math.random()*-2)+1;
@@ -42,10 +41,10 @@ public void show(){
     rotate(-1*dRadians);
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
 }
-public void getMyCenterX(){
-    return myCenterX;
+public float getMyCenterX(){
+    return (float)myCenterX;
 }
-public void getMyCenterY(){
-    return myCenterY;
+public float getMyCenterY(){
+    return (float)myCenterY;
 }
 }

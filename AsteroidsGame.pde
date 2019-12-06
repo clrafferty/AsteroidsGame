@@ -11,7 +11,7 @@ public void setup()
   for(int i=0;i<solarsystem.length;i++)
     solarsystem[i]= new Planet();
   for(int i = 0 ; i <5 ; i++)
-    Stroids.add(new Asteroid);
+    Stroids.add(new Asteroid());
 }
 public void draw() 
 {
@@ -28,14 +28,14 @@ public void draw()
   solarsystem[5].show(150,100,100);
   //solarsystem[6].show(100,100,0);
   //solarsystem[7].show(100,100,0);
-  for(int i = 0 ; i <5 ; i++){
+  for(int i = 0 ; i <Stroids.size() ; i++){
     Stroids.get(i).show();
     Stroids.get(i).move();
   }
 if(keyPressed==false)
   rocket.setfiring(false);
 for(int i = 0 ; i < Stroids.size() ; i++){
-  if(dist(rocket.getMyCenterX(),rocket.getMyCenterY(),Stroids.get(i).getMyCenterX(),Stroids.get(i).getMyCenterY())<20){
+  if(dist(rocket.getMyCenterX(),rocket.getMyCenterY(),Stroids.get(i).getMyCenterX(),Stroids.get(i).getMyCenterY())<30){
     Stroids.remove(i);
   }
 }
