@@ -38,15 +38,16 @@ public void draw()
     if (dist(rocket.getMyCenterX(), rocket.getMyCenterY(), Stroids.get(i).getMyCenterX(), Stroids.get(i).getMyCenterY())<30) {
       Stroids.remove(i);
     }
+
   }
   if(rocket.getMyPointDirectionX()>0)
-    rocket.setMyPointDirectionX(rocket.getMyPointDirectionX()-.1);
+    rocket.setMyPointDirectionX(rocket.getMyPointDirectionX()-.01);
   if(rocket.getMyPointDirectionX()<0)
-    rocket.setMyPointDirectionX(rocket.getMyPointDirectionX()+.1);
+    rocket.setMyPointDirectionX(rocket.getMyPointDirectionX()+.01);
    if(rocket.getMyPointDirectionY()>0)
-    rocket.setMyPointDirectionY(rocket.getMyPointDirectionY()-.1);
+    rocket.setMyPointDirectionY(rocket.getMyPointDirectionY()-.01);
   if(rocket.getMyPointDirectionX()<0)
-    rocket.setMyPointDirectionY(rocket.getMyPointDirectionY()+.1);
+    rocket.setMyPointDirectionY(rocket.getMyPointDirectionY()+.01);
 }
 public void keyPressed() {
 
