@@ -1,7 +1,7 @@
 Spaceship rocket = new Spaceship();
 Star [] sky = new Star[60];
 Planet [] solarsystem = new Planet[8];
-
+ArrayList <Asteroid> Stroids = new ArrayList <Asteroid>();
 public void setup() 
 {
   size(1000,1000);
@@ -10,6 +10,8 @@ public void setup()
   	sky[i]= new Star();
   for(int i=0;i<solarsystem.length;i++)
     solarsystem[i]= new Planet();
+  for(int i = 0 ; i <5 ; i++)
+    Stroids.add(new Asteroid);
 }
 public void draw() 
 {
@@ -26,8 +28,17 @@ public void draw()
   solarsystem[5].show(150,100,100);
   //solarsystem[6].show(100,100,0);
   //solarsystem[7].show(100,100,0);
+  for(int i = 0 ; i <5 ; i++){
+    Stroids.get(i).show();
+    Stroids.get(i).move();
+  }
 if(keyPressed==false)
   rocket.setfiring(false);
+for(int i = 0 ; i < Stroids.size() ; i++){
+  if(dist(rocket.getMyCenterX(),rocket.getMyCenterY(),Stroids.get(i).getMyCenterX(),Stroids.get(i).getMyCenterY())<20){
+    Stroids.remove(i);
+  }
+}
 }
 public void keyPressed(){
  
