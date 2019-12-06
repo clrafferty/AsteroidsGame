@@ -26,17 +26,23 @@ public void draw()
   solarsystem[5].show(150,100,100);
   //solarsystem[6].show(100,100,0);
   //solarsystem[7].show(100,100,0);
-
+if(keyPressed==false)
+  rocket.setfiring(false);
 }
 public void keyPressed(){
+ 
     if(keyCode==LEFT)
 		  rocket.turn(-3);
 	if(keyCode==RIGHT)
 		rocket.turn(3);
-  if(keyCode==UP)
+  if(keyCode==UP){
     rocket.accelerate(.2);
-  if(keyCode==DOWN)
+        rocket.setfiring(true);
+  }
+  if(keyCode==DOWN){
     rocket.accelerate(-.2);
+        rocket.setfiring(true);
+  }
   if(keyCode==32){
     rocket.setMyCenterX((float)(Math.random()*width));
     rocket.setMyCenterY((float)(Math.random()*height));

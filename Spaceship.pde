@@ -1,5 +1,6 @@
 class Spaceship extends Floater  
 {   
+  private boolean firing;
   Spaceship() {
     //corners = ;  //the number of corners, a triangular floater has 3   
     //xCorners;   
@@ -10,6 +11,7 @@ class Spaceship extends Floater
     myDirectionX = 0; 
     myDirectionY=0; //holds x and y coordinates of the vector for direction of travel   
     myPointDirection =0;
+    firing=false;
   }
   public void show() {
 
@@ -25,12 +27,13 @@ class Spaceship extends Floater
     //rotate so that the polygon will be drawn in the correct direction
     rotate(dRadians);
     //spaceship
-    translate(0,15);
+ 
     fill(180);
     stroke(180);
     triangle(15,0,-15,0,0,-15);
     rect(-15,-2,30,45,7);
     //fire trail
+    if(firing==true){
     noStroke();
     fill(255,0,0,35);
     triangle(-8,45,-15,65,-1,65);
@@ -41,6 +44,7 @@ class Spaceship extends Floater
     fill(255,255,0,35);
     triangle(-8,65,-12,73,-4,73);
     triangle(8,65,12,73,4,73);
+  }
     //window
     fill(0);
     ellipse(0,25,15,15);
@@ -53,7 +57,7 @@ class Spaceship extends Floater
      endShape(CLOSE);
      */
       //"unrotate" and "untranslate" in reverse order
-      translate(0,-15);
+
       rotate(-1*dRadians);
       rotate(-PI/2);
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
@@ -73,5 +77,8 @@ class Spaceship extends Floater
   public void setMyPointDirection(float mypointdir){
     myPointDirection=mypointdir;
   }
+  public void setfiring(boolean fire){
+    firing=fire;
+   }
 }
    
