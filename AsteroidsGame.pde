@@ -39,13 +39,23 @@ public void draw()
       Stroids.remove(i);
     }
   }
+  if(rocket.getMyPointDirectionX()>0)
+    rocket.setMyPointDirectionX(rocket.getMyPointDirectionX()-.1);
+  if(rocket.getMyPointDirectionX()<0)
+    rocket.setMyPointDirectionX(rocket.getMyPointDirectionX()+.1);
+   if(rocket.getMyPointDirectionY()>0)
+    rocket.setMyPointDirectionY(rocket.getMyPointDirectionY()-.1);
+  if(rocket.getMyPointDirectionX()<0)
+    rocket.setMyPointDirectionY(rocket.getMyPointDirectionY()+.1);
 }
 public void keyPressed() {
 
   if (keyCode==LEFT)
     rocket.turn(-3);
+    rocket.accelerate(0);
   if (keyCode==RIGHT)
     rocket.turn(3);
+    rocket.accelerate(0);
   if (keyCode==UP) {
     rocket.accelerate(.2);
     rocket.setfiring(true);
