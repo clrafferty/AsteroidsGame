@@ -4,8 +4,8 @@
 			myCenterY=theship.getMyCenterY();
 			myPointDirection = theship.getMyPointDirection();
 			double dRadians=myPointDirection*(Math.PI/180);
-			myDirectionX=0;
-			myDirectionY=0;
+			 myDirectionX=(double)(Math.random()*-2)+1;
+    myDirectionY=(double)(Math.random()*-2)+1; 
 		}
 		public void show(){
 			fill(255);
