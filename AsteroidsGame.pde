@@ -2,6 +2,7 @@ Spaceship rocket = new Spaceship();
 Star [] sky = new Star[60];
 Planet [] solarsystem = new Planet[8];
 ArrayList <Asteroid> Stroids = new ArrayList <Asteroid>();
+ArrayList <Bullets> bull = new ArrayList <Bullets>();
 public void setup() 
 {
   size(1000, 1000);
@@ -38,16 +39,18 @@ public void draw()
     if (dist(rocket.getMyCenterX(), rocket.getMyCenterY(), Stroids.get(i).getMyCenterX(), Stroids.get(i).getMyCenterY())<30) {
       Stroids.remove(i);
     }
-
   }
-  if(rocket.getMyPointDirectionX()>0)
-    rocket.setMyPointDirectionX(rocket.getMyPointDirectionX()-.01);
-  if(rocket.getMyPointDirectionX()<0)
-    rocket.setMyPointDirectionX(rocket.getMyPointDirectionX()+.01);
-   if(rocket.getMyPointDirectionY()>0)
-    rocket.setMyPointDirectionY(rocket.getMyPointDirectionY()-.01);
-  if(rocket.getMyPointDirectionX()<0)
-    rocket.setMyPointDirectionY(rocket.getMyPointDirectionY()+.01);
+  for(int i = 0; i<bull.size();i++){
+    bull.get(i).show();
+    bull.get(i).move();
+    for(int m = 0 ; m<Stroids.size();m++){
+      if(dist(Stroids.get(m).getMyCenterX(), Stroids.get(m).getMyCenterY(), bull.get(i).getMyCenterX(), bull.get(i).getMyCenterY())<20){
+          Stroids.remove(m);
+          break;
+      }
+    }
+  }
+
 }
 public void keyPressed() {
 
@@ -62,8 +65,7 @@ public void keyPressed() {
     rocket.setfiring(true);
   }
   if (keyCode==DOWN) {
-    rocket.accelerate(-.2);
-    rocket.setfiring(true);
+    bull.add(new Bullets(rocket));
   }
   if (keyCode==32) {
     rocket.setMyCenterX((float)(Math.random()*width));
