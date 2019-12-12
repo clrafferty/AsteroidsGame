@@ -1,8 +1,10 @@
 Spaceship rocket = new Spaceship();
 Star [] sky = new Star[60];
 Planet [] solarsystem = new Planet[8];
+int astnum=5;
 ArrayList <Asteroid> Stroids = new ArrayList <Asteroid>();
 ArrayList <Bullets> bull = new ArrayList <Bullets>();
+
 public void setup() 
 {
   size(1000, 1000);
@@ -11,12 +13,22 @@ public void setup()
     sky[i]= new Star();
   for (int i=0; i<solarsystem.length; i++)
     solarsystem[i]= new Planet();
-  for (int i = 0; i <5; i++)
+  for (int i = 0; i <astnum; i++)
     Stroids.add(new Asteroid());
 }
 public void draw() 
 {
   background(10, 0, 60);	
+  if (astnum==0) {
+    astnum*=2;
+    stroke(255);
+    fill(255);
+    textSize(20);
+    textAlign(CENTER);
+    text("level passed", width/2, height/2);
+    for (int i = 0; i <astnum; i++)
+      Stroids.add(new Asteroid());
+  }
   for (int i = 0; i<sky.length; i++)
     sky[i].show();
   rocket.show();
@@ -40,26 +52,25 @@ public void draw()
       Stroids.remove(i);
     }
   }
-  for(int i = 0; i<bull.size();i++){
+  for (int i = 0; i<bull.size(); i++) {
     bull.get(i).show();
     bull.get(i).move();
-    for(int m = 0 ; m<Stroids.size();m++){
-      if(dist(Stroids.get(m).getMyCenterX(), Stroids.get(m).getMyCenterY(), bull.get(i).getMyCenterX(), bull.get(i).getMyCenterY())<20){
-          Stroids.remove(m);
-          break;
+    for (int m = 0; m<Stroids.size(); m++) {
+      if (dist(Stroids.get(m).getMyCenterX(), Stroids.get(m).getMyCenterY(), bull.get(i).getMyCenterX(), bull.get(i).getMyCenterY())<20) {
+        Stroids.remove(m);
+        break;
       }
     }
   }
-
 }
 public void keyPressed() {
 
   if (keyCode==LEFT)
     rocket.turn(-3);
-    rocket.accelerate(0);
+  rocket.accelerate(0);
   if (keyCode==RIGHT)
     rocket.turn(3);
-    rocket.accelerate(0);
+  rocket.accelerate(0);
   if (keyCode==UP) {
     rocket.accelerate(.2);
     rocket.setfiring(true);
