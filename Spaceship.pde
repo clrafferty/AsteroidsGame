@@ -95,3 +95,4 @@ class Spaceship extends Floater
   public float getMyPointDirection() {
    return (float)myPointDirection;
 }
+}

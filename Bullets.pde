@@ -10,7 +10,7 @@
 		public void show(){
 			fill(255);
 			stroke(255);
-			ellipse(myCenterX,myCenterY,5,5);
+			ellipse((float)myCenterX,(float)myCenterY,5,5);
 		}
 		public void move(){
 			myCenterX += myDirectionX;    
